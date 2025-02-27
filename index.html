@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <header class="h-screen ">
@@ -26,16 +27,49 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
+      
     </nav>
     
     <div class="py-8 z-10 font-serif">
   <div class="flex flex-col md:flex-row items-center max-w-6xl px-6 mx-auto">
     <div class="w-full md:w-1/2 py-8">
         <h1 class="text-[#BC345C] text-5xl md:text-7xl font-semibold leading-none tracking-tighter">
-          My name is <br><span class="text-[#6C63FF]">Lois Asiedu, <br></span> I am Web Developer.
+          My name is <br><span class="text-[#6C63FF]">Lois Asiedu, <br></span> I am <br><span id="typewriter"></span></span>
         </h1>
+        <script>
+          const words = ["Web Developer", "Virtual Assistant", "Transcriber"];
+          let i = 0;
+          let j = 0;
+          let currentWord = "";
+          let isDeleting = false;
+          
+          function type() {
+            currentWord = words[i];
+            if (isDeleting) {
+              document.getElementById("typewriter").textContent = currentWord.substring(0, j-1);
+              j--;
+              if (j == 0) {
+                isDeleting = false;
+                i++;
+                if (i == words.length) {
+                  i = 0;
+                }
+              }
+            } else {
+              document.getElementById("typewriter").textContent = currentWord.substring(0, j+1);
+              j++;
+              if (j == currentWord.length) {
+                isDeleting = true;
+              }
+            }
+            setTimeout(type, 100);
+          }
+          
+          type();
+          </script>
+        <button class="w-40 px-4 mt-1 py-2 rounded-3xl  text-center bg-[#6C63FF]">Hire Me!</button>
       </div>
-      <div class="w-full md:w-1/2 py-8">
+      <div class="w-full md:w-1/2 py-8 ">
         <img src="/assets/undraw_workspace_s6wf.svg" class="g-image">
       </div>
     </div>
@@ -45,7 +79,7 @@
   <section class="md:h-screen ">
     <div class=" md:flex justify-around  content-center">
       <div class="w-full h-auto object-cover md:w-100  rounded-lg shadow-lg">
-        <img src="/assets/WhatsApp Image 2025-02-26 at 19.50.31_f7533d12.jpg" alt="a picture of me" class="md">
+        <img src="/assets/WhatsApp Image 2025-02-26 at 19.50.31_f7533d12.jpg" alt="a picture of me" class=" relative h-full p-5 bg-[#BC345C] border-2 border-[#BC345C] rounded-lg">
       </div>
 
       <div class="flex flex-col justify-around i">
@@ -68,15 +102,91 @@
       </div>
     </div>
   </section>
+
+  <section class="container relative flex flex-col justify-between h-full max-w-6xl px-10 mx-auto xl:px-0 mt-5">
+    <h2 class="mb-1 text-3xl font-extrabold leading-tight text-gray-900">Projects</h2>
+    <p class="mb-12 text-lg text-gray-500">Here are my skills and some projects I have completed</p>
+    <div class="flex flex-col w-full mb-10 sm:flex-row">
+      <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+          <div class="relative h-full ml-0 mr-0 sm:mr-10">
+              <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-[#6C63FF] rounded-lg"></span>
+              <div class="relative h-full p-5 bg-white border-2 border-indigo-500 rounded-lg">
+                  <div class="flex items-center -mt-1">
+                      <h3 class="my-2 ml-2 text-lg font-bold text-gray-800">Technical Skills</h3>
+                  </div>
+                  <p class="mt-3 mb-1 text-xs font-medium text-indigo-500 uppercase">------------</p>
+                  <p class="mb-2 text-gray-600"><span class="font-bold">Languages:</span> Python, Java, Node.js, Ruby.
+                    <br><span class="font-bold">Frameworks:</span> Django, Spring Boot, Express.js.
+                    <br><span class="font-bold">Databases:</span> SQL (PostgreSQL), NoSQL (MongoDB).
+                    <br><span class="font-bold">APIs:</span> REST, GraphQL.
+                    Common Skills: Git, Agile, Jira, Postman.
+                    </p>
+              </div>
+          </div>
+      </div>
+      
+  </div>
+  <div class="flex flex-col w-full mb-5 sm:flex-row">
+    <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+        <div class="relative h-full ml-0 mr-0 sm:mr-10">
+            <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-blue-400 rounded-lg"></span>
+            <div class="relative h-full p-5 bg-white border-2 border-blue-400 rounded-lg">
+                <div class="flex items-center -mt-1">
+                    <h3 class="my-1 ml-3 text-lg font-bold text-gray-800">Beauty Shop Page</h3>
+                </div>
+              
+                <p class=" mb-1 text-xs font-medium text-blue-400 uppercase">------------</p>
+                <img src="/assets/Screenshot 2025-02-27 115844.png" alt="my page">
+                <p class="mb-2 text-gray-600">
+                  <span class="font-bold">Languages: </span>HTML, CSS, JavaScript.
+                  </p>
+                <a href="https://loisina.github.io/landing-page/" target="_blank"><button class="w-40 px-4 py-2 rounded-3xl  text-center bg-[#6C63FF] font-extrabold">Live Demo</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+        <div class="relative h-full ml-0 mr-0 sm:mr-10">
+            <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-yellow-400 rounded-lg"></span>
+            <div class="relative h-full p-5 bg-white border-2 border-yellow-400 rounded-lg">
+                <div class="flex items-center -mt-1">
+                    <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">Class Webpage</h3>
+                </div>
+                <p class=" mb-1 text-xs font-medium text-yellow-400 uppercase">------------</p>
+                <img src="/assets/Screenshot 2025-02-27 123610.png" alt="my page">
+                <p class="mb-2 text-gray-600">
+                  <span class="font-bold">Languages: </span>HTML, CSS, JavaScript.
+                  </p>
+                <a href="https://loisina.github.io/landing-page/" target="_blank"><button class="w-40 px-4 py-2 rounded-3xl  text-center bg-[#6C63FF] font-extrabold">Live Demo</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="w-full sm:w-1/2">
+        <div class="relative h-full ml-0 md:mr-10">
+            <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-green-500 rounded-lg"></span>
+            <div class="relative h-full p-5 bg-white border-2 border-green-500 rounded-lg">
+                <div class="flex items-center -mt-1">
+                    <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">Bot/Script Development</h3>
+                </div>
+                <p class=" mb-1 text-xs font-medium text-green-500 uppercase">------------</p>
+                <img src="/assets/Screenshot 2025-02-27 123610.png" alt="my page">
+                <p class="mb-2 text-gray-600">
+                  <span class="font-bold">Languages: </span>HTML, CSS, JavaScript.
+                  </p>
+                <a href="https://loisina.github.io/landing-page/" target="_blank"><button class="w-40 px-4 py-2 rounded-3xl  text-center bg-[#6C63FF] font-extrabold">Live Demo</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+  </section>
   
-  <section class="flex justify-center content-center">
+  <section class="flex justify-center content-center overflow-auto items-center">
    
     <div class=" px-30 flex flex-col w-full md:w-1/2 py-8 ">
       <div class="text-3xl font-bold text-[#BC345C]">
         <h1>Resume</h1>
       </div>
       <div class="py-8 text-2xl">
-        <h3>Work Experience</h3>
+        <h3 class="underline">Work Experience</h3>
       </div>
       <div class="grid grid-cols-2 grid-rows-2 gap-1 font-semibold py-8">
         <div class="text-xl font-semibold">Executive Assistant</div>
@@ -84,29 +194,64 @@
         <div class="">Brolly | Accra, Ghana</div>
         <div>April 2024 - October 2024</div>
       </div>
-      <div class="grid grid-cols-2 grid-rows-2 gap-1 font-semibold">
-        <div class="text-xl font-semibold">Teaching Assistant</div>
+      <div class="grid grid-cols-2 grid-rows-2 gap-1 font-semibold py-8">
+        <div class="text-xl font-semibold">Executive Assistant</div>
         <div class=" text-xl">National Service</div>
         <div class="">KNUST | Kumasi, Ghana</div>
         <div>November 2022 - November 2023</div>
       </div>
       
       <div class="py-10 text-2xl">
-        <h3>Education</h3>
+        <h3 class="underline">Education</h3>
       </div>
-      <div class="grid grid-cols-2 grid-rows-2 gap-1 font-semibold">
+      <div class="grid grid-cols-2 grid-rows-2 gap-1 font-semibold py-8">
         <div class="text-xl font-semibold">BA. Economics</div>
-        <div class=" text-xl">First Class Honours</div>
+        <div class=" text-xl">First Class</div>
         <div class="">KNUST | Kumasi, Ghana</div>
         <div>September 2018 - November 2022</div>
       </div>
       
     </div>
-    <div class="w-full md:w-1/2 py-8">
+    <div class=" flex justify-center w-full md:w-1/2  py-8">
       <img src="/assets/undraw_online-resume_z4sp.svg" alt="My resume section image" class="g-image">
     </div>
     
 
+  </section>
+  <section class="h-screen flex items-center px-6">
+    <div class="w-full sm:w-1/2">
+      <h1 class="text-3xl font-extrabold">Need a pro to get the job done? <br>Let's make it official—get in touch!"</h1>
+      <h1 class="mt-6 font-bold">Contact me <i class="fa fa-arrow-right animate-bounce" aria-hidden="true"></i></h1>
+    </div>
+    <div class="w-full sm:w-1/2 relative  p-5 bg-white border-2 border-[#BC345C] rounded-lg">
+      <form class="bg-white rounded-lg px-6 py-7 shadow-md">
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="name">Name</label>
+            <input
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name" type="text" placeholder="Enter your name">
+        </div>        
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="email">Email</label>
+            <input
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email" type="email" placeholder="Enter your email">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="message">Message</label>
+            <textarea
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="message" rows="6" placeholder="Enter your message"></textarea>
+        </div>
+        <div class="flex justify-end">
+            <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button">
+                Send
+            </button>
+        </div>
+    </form>
+    </div>
   </section>
 </body>
 </html>
